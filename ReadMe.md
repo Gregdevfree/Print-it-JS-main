@@ -10,7 +10,7 @@
 		<p>Impressions tous formats <span>en boutique et en ligne</span></p>
 --> suppression du doublon body {} dans style.css
 
-2e commit "Etape 2 projet 8 - eventListener sur chacune des flèches"
+2e commit "Etape 2 projet 8 - eventListener sur chacune des flèches-2ème version"(annule et remplace le précédent commit)
 -->modification du html:
 Pour améliorer l'accessibilité, ajout des attributs aria-label sur les flèches gauche et droite
 
@@ -23,4 +23,16 @@ Pour améliorer l'accessibilité, ajout des attributs aria-label sur les flèche
 
 -->suppression de <script src="script.js" defer></script> car déjà présence de <script src="./assets/script.js"></script> en fin du <body>
 
--->tests console.log et alert ()
+-->tests console.log et alert () voir copies d'écrans dans soutenance
+
+3e commit "Etape 3 projet 8 - Ajout des bullet points au slider"
+-->4 slides dans const slides donc 4 bullet points avec slides.length; dans Console -->voir copies d'écrans dans soutenance
+-->ajout dans html des 4 bullet points d'après les classes CSS .dots; .dot et .dot-selected
+		<div class="dots">
+			<div class="dot dot_selected"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+		</div>
+-->le point qui signale la diapositive en cours de visionnage est dot_selected avec la propriété background-color: blanc
+
