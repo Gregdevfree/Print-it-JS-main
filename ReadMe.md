@@ -14,9 +14,7 @@
 -->modification du html:
 Pour améliorer l'accessibilité, ajout des attributs aria-label sur les flèches gauche et droite
 
-<div id="banner"> <!--carrousel/slider-->
-		<img class="banner-img" src="./assets/images/slideshow/slide1.jpg" alt="Banner Print-it">
-		<!--intégration des flèches de navigation-->
+<div id="banner"> <!--carrousel/slider-->...
 		<img class="arrow arrow_left" src="./assets/images/arrow_left.png" alt="Précédente" aria-label="Image précédente">
 		<img class="arrow arrow_right" src="./assets/images/arrow_right.png" alt="Suivante" aria-label="Image suivante">
 		<p>Impressions tous formats <span>en boutique et en ligne</span></p>
@@ -35,4 +33,36 @@ Pour améliorer l'accessibilité, ajout des attributs aria-label sur les flèche
 			<div class="dot"></div>
 		</div>
 -->le point qui signale la diapositive en cours de visionnage est dot_selected avec la propriété background-color: blanc
+
+4e commit "Etapes 4 et 5 projet 8 - Modification du slide au clic et mise en place du défilement infini sur le carrousel"
+
+-->pour  optimisation du code et pour éviter la répétition dans la logique des flèches gauche et droite, création d'une fonction commune qui gère la navigation:
+
+function navigateCarousel(direction) {
+  // Si direction est 'left', on décrémente l'index, sinon on l'incrémente
+  currentIndex = direction === 'left'
+    ? currentIndex === 0 ? slides.length - 1 : currentIndex - 1
+    : currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+  
+  // Mettre à jour l'image et le texte
+  updateCarousel();
+
+-->remplacement du script eventListener et de console.log et alert():
+
+arrowLeft.addEventListener('click', () => {
+  console.log("Flèche gauche cliquée")
+  alert('Flèche gauche cliquée')
+})
+arrowRight.addEventListener('click', () => {
+  console.log('Flèche droite cliquée')
+  alert('Flèche droite cliquée')
+})
+remplacé par:
+if (arrowLeft && arrowRight && bannerImage && tagLine) {
+  arrowLeft.addEventListener('click', () => navigateCarousel('left'))
+  arrowRight.addEventListener('click', () => navigateCarousel('right'))
+} else {
+  console.error('Certains éléments DOM nécessaires sont manquants.')
+}
+
 
